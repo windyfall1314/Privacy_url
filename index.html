@@ -21,8 +21,8 @@ h1,h2{
 
 <h1>易合信创车联网隐私政策</h1>
 
-<p>更新日期：2026年06月06日</p>
-<p>生效日期：2026年06月06日</p>
+<p>更新日期：2026年07月27日</p>
+<p>生效日期：2026年07月27日</p>
 
 <h2>一、引言</h2>
 
@@ -118,6 +118,29 @@ h1,h2{
 <ul>
 <li>用途：由阿里云 EMAS 移动推送 SDK 在生成设备唯一标识时读取，仅用于设备识别，不采集任何传感器的测量数据。</li>
 <li>说明：仅在用户同意本隐私政策后读取，不上传至任何服务器。</li>
+</ul>
+</li>
+
+<li>
+开机自启动
+<ul>
+<li>用途：在您同意本政策后，应用可能在设备开机时自动启动，用于恢复推送服务连接，确保您能及时收到审批提醒、打卡提醒等通知。</li>
+</ul>
+</li>
+
+<li>
+后台关联启动
+<ul>
+<li>用途：阿里云 EMAS 移动推送 SDK 会在后台维持推送通道进程（独立于主应用进程），用于实时接收服务端下发的通知消息。</li>
+</ul>
+</li>
+
+<li>
+厂商辅助推送通道信息
+<ul>
+<li>用途：Android 版通过小米、OPPO、vivo 和荣耀推送 SDK 提高应用未运行时的通知送达率。</li>
+<li>处理的信息：应用信息、设备信息、厂商推送标识、系统与网络信息；具体范围见本政策第九节。</li>
+<li>说明：仅在用户同意本隐私政策后，并且设备适配对应厂商通道时启用。</li>
 </ul>
 </li>
 
@@ -220,14 +243,53 @@ h1,h2{
 
 <p style="margin-top:8px;">
 本应用使用该 SDK 的具体流程：<br>
-① App 启动时 SDK 自动向阿里云注册，生成 DeviceId；<br>
+① 用户首次同意本隐私政策后初始化 SDK 并向阿里云注册，生成 DeviceId；后续已同意状态下随 App 启动恢复注册；<br>
 ② 本应用将 DeviceId 上报至本公司服务器，与用户账号绑定；<br>
 ③ 当有审批流转、日程邀请等事件时，服务端通过 EMAS 向对应设备下发通知；<br>
 ④ 用户点击通知后，App 根据通知参数自动跳转至相关页面；<br>
 ⑤ 用户退出登录时，本应用自动删除服务器端存储的 DeviceId，解除推送绑定。
 </p>
 
-<h3>（二）本地通知</h3>
+<h3>（二）厂商辅助推送通道（仅 Android）</h3>
+
+<p>阿里云 EMAS 会在对应品牌设备上启用以下厂商通道，用于在应用未运行时提高通知送达率：</p>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%;">
+<tr style="background:#f5f5f5;">
+  <td><strong>SDK 名称</strong></td>
+  <td><strong>提供方</strong></td>
+  <td><strong>处理的信息</strong></td>
+  <td><strong>隐私政策</strong></td>
+</tr>
+<tr>
+  <td>小米推送 SDK</td>
+  <td>北京小米移动软件有限公司</td>
+  <td>应用包名、版本号和运行状态；推送消息内容及创建、送达、点击时间；设备厂商、型号、内存、系统版本、网络类型、WiFi 状态和通知栏设置</td>
+  <td><a href="https://dev.mi.com/xiaomihyperos/documentation/detail?pId=1534" target="_blank">小米推送隐私政策</a></td>
+</tr>
+<tr>
+  <td>OPPO PUSH SDK</td>
+  <td>广东欢太科技有限公司</td>
+  <td>应用基本信息（MCS 应用包名、应用版本号、OPUSH SDK 版本号）、应用内设备标识符（RegistrationID）</td>
+  <td><a href="https://open.oppomobile.com/documentation/page/info?id=11228" target="_blank">OPPO PUSH SDK 个人信息保护政策</a></td>
+</tr>
+<tr>
+  <td>vivo 推送 SDK</td>
+  <td>维沃移动通信有限公司</td>
+  <td>应用基本信息（appid、appkey、应用包名、应用版本号、pushSDK 版本）、vpush regId、设备类型、系统类型与版本</td>
+  <td><a href="https://developers.vivo.com/doc/d/23807c559e844cbeb06049ee69e71833" target="_blank">vivo 推送 SDK 隐私安全说明</a></td>
+</tr>
+<tr>
+  <td>荣耀推送 SDK</td>
+  <td>深圳荣耀软件技术有限公司或关联公司</td>
+  <td>设备信息、应用信息（AAID、PushToken、APPID、应用包名）</td>
+  <td><a href="https://developer.honor.com/cn/docs/11002/guides/sdk-data-security" target="_blank">荣耀推送 SDK 隐私声明</a></td>
+</tr>
+</table>
+
+<p>上述厂商通道仅用于审批提醒、打卡提醒、日程提醒等业务通知，仅在用户同意本隐私政策后初始化。</p>
+
+<h3>（三）本地通知</h3>
 
 <p>以下通知由设备本地调度，<strong>不经过任何第三方服务器，无数据外传</strong>，通知内容仅存储于用户设备本地：</p>
 
